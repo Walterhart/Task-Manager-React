@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+
+.input {
+    
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  
+  .input-el {
+    width: 100%;
+    border-radius: 50px;
+    padding: 20px 30px;
+  
+    font-size: 25px;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 5px black;
+  }
+  
+  .input-el:focus {
+    box-shadow: 0 0 10px 2000px rgba(0, 0, 0, 0.5);
+    outline: none;
+  }
+  
+  .btn-el {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 12px;
+    border-radius: 50px;
+    right: 0px;
+    border: none;
+    font-size: 15px;
+    background-color: #7a04eb;
+    color: white;
+    transition: 0.2s all;
+
+  }
+  
+  .btn-el:hover {
+    background-color: #ff00a0;
+    box-shadow: 5px  #ff00a0;
+  }
+  
+  .btn-el:active {
+    transform: scale(0.8);
+  }
+  
+  .container {
+    width: 95%;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .tasks {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 47.5%;
+    padding: 15px;
+    margin-top: 20px;
+   
+  }
+  
+  .tasks-item{
+    display: flex;
+    border-radius: 5px;
+    padding: 25px;
+    margin-top: 15px;
+    background-image: url("https://img.freepik.com/free-photo/creative-background-with-wrinkled-paper-effect_23-2149640516.jpg?w=826&t=st=1677560659~exp=1677561259~hmac=f9bfeb44353e2668cd30a15765f15d609ac366482080f37c3599a020469b48fa");
+    transition: 0.2s;
+  }
