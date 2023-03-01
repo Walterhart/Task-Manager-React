@@ -4,21 +4,29 @@ import { BsTrash } from "react-icons/bs";
 import { AiOutlineEdit, } from "react-icons/ai";
 import {MdDone } from "react-icons/md";
 import { useRef, useEffect } from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 
 // props structure
 interface Props{
+    index: number;
     task: Task; 
     tasks: Task[];
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+    
+
 }
 
-const TaskItem = ({task, tasks, setTasks}: Props)  => {
+const TaskItem = ({index, task, tasks, setTasks}: Props)  => {
     const [edit, setEdit] = React.useState<boolean>(false);
     const [editedTask, setEditedTask] = React.useState<string>(task.task);
     
     //  mark task as completed
     const completeTask = (id: number) => {
-        setTasks(tasks.map((task) => task.id === id? {...task, completed: !task.isCompleted} : task));
+        setTasks(
+          tasks.map((todo) =>
+            todo.id === id ? { ...task, isCompleted: !task.isCompleted } : todo
+          )
+        );
     };
 
     // delte task base on id
@@ -32,7 +40,7 @@ const TaskItem = ({task, tasks, setTasks}: Props)  => {
         e.preventDefault();
         setTasks(tasks.map((task) => task.id === id? {...task, task:editedTask} : task));
         setEdit(false)
-    }
+    };
 
     // focus variable
     const InputTaskRef = useRef<HTMLInputElement>(null);
@@ -42,25 +50,36 @@ const TaskItem = ({task, tasks, setTasks}: Props)  => {
       
     }, [edit])
     
-
-
   return (
-
-    // edit task if icon clicked and edited
-    <form  className="tasks-item" onSubmit={(e) => editTask(e, task.id)}>
+    <Draggable draggableId = {task.id.toString()} index = {index}>
         {
-            edit ? (<input className ="task-item-text" value = {editedTask} onChange = {(e) => setEditedTask(e.target.value)}/>):(        
-                    task.isCompleted ? ( <s className="tasks-item-text">{task.task}</s>) : ( <span className="tasks-item-text">{task.task}</span>)
+            (provided) => (
+    <form  className="tasks-item" onSubmit={(e) => editTask(e, task.id)} ref = {provided.innerRef} {...provided.dragHandleProps} {...provided.draggableProps}>
+    
+    {/*edit task if icon clicked and edited*/}
+    {edit ? (
+            <input
+              value={editedTask}
+              onChange={(e) => setEditedTask(e.target.value)}
+              className="task-item-text"
+              ref={InputTaskRef}
+            />
+          ) : task.isCompleted? (
+            <s className="task-item-text">{task.task}</s>
+          ) : (
+            <span className="task-item-text">{task.task}</span>
+          )}
+   
+    <div className ="icon">
+        <AiOutlineEdit onClick = {() => { if(!edit && !task.isCompleted){setEdit(!edit)}}}/>
+        <BsTrash onClick = {() => deleteTask(task.id)}/>
+        <MdDone onClick = {() => completeTask(task.id)}/>
+    </div>
+</form>
             )
         }
-       
-       
-        <div className ="icon">
-            <AiOutlineEdit onClick = {() => { if(!edit && !task.isCompleted){setEdit(!edit)}}}/>
-            <BsTrash onClick = {() => deleteTask(task.id)}/>
-            <MdDone onClick = {() => completeTask(task.id)}/>
-        </div>
-    </form>
+    
+    </Draggable>
   )
 }
 
