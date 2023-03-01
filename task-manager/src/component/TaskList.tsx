@@ -21,6 +21,7 @@ const TaskList: React.FC<Props> = ({tasks,setTasks, completedTasks, setCompleted
                 {tasks.map((task, index) =>(
                     <TaskItem  index ={index} task = {task} key = {task.id} tasks = {tasks} setTasks = {setTasks} />
                 ))}
+                {provided.placeholder}
                  </div>)
              }
            
@@ -33,9 +34,12 @@ const TaskList: React.FC<Props> = ({tasks,setTasks, completedTasks, setCompleted
                     { completedTasks.map((task,index) =>(
                         <TaskItem index = {index} task = {task} key = {task.id} tasks = { completedTasks} setTasks = {setCompletedTasks} />
                     ))}
+                   {provided.placeholder}
                 </div>)
                 }
-             </Droppable>        
+             </Droppable>
+      
+        
          </div>
         </div>
      );
