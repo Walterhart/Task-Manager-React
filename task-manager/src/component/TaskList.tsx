@@ -26,7 +26,7 @@ const TaskList: React.FC<Props> = ({tasks,setTasks, completedTasks, setCompleted
              }
            
              </Droppable>
-             <Droppable droppableId="task-completed">
+             <Droppable droppableId="completed-task">
                 
                 {
                     (provided) => ( <div className="task-completed" ref ={provided.innerRef} {...provided.droppableProps}>
