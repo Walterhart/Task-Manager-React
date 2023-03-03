@@ -5,6 +5,7 @@ import { AiOutlineEdit, } from "react-icons/ai";
 import {MdDone } from "react-icons/md";
 import { useRef, useEffect } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import "./style.css"
 
 // props structure
 interface Props{
@@ -72,7 +73,11 @@ const TaskItem = ({index, task, tasks, setTasks}: Props)  => {
    
     <div className ="icon">
         <AiOutlineEdit onClick = {() => { if(!edit && !task.isCompleted){setEdit(!edit)}}}/>
+        </div>
+        <div className ="icon">
         <BsTrash onClick = {() => deleteTask(task.id)}/>
+        </div>
+        <div className ="icon">
         <MdDone onClick = {() => completeTask(task.id)}/>
     </div>
 </form>

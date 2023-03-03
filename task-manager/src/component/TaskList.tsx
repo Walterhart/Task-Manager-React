@@ -17,7 +17,7 @@ const TaskList: React.FC<Props> = ({tasks,setTasks, completedTasks, setCompleted
             
              {
                 (provided) => ( <div className="task-need-to-complete" ref ={provided.innerRef} {...provided.droppableProps}>
-                <h2>Task to do</h2>
+                <h2 className="task-header">Task to do</h2>
                 {tasks.map((task, index) =>(
                     <TaskItem  index ={index} task = {task} key = {task.id} tasks = {tasks} setTasks = {setTasks} />
                 ))}
@@ -30,7 +30,7 @@ const TaskList: React.FC<Props> = ({tasks,setTasks, completedTasks, setCompleted
                 
                 {
                     (provided) => ( <div className="task-completed" ref ={provided.innerRef} {...provided.droppableProps}>
-                    <h2>Task completed</h2>
+                    <h2 className="task-header">Task completed</h2>
                     { completedTasks.map((task,index) =>(
                         <TaskItem index = {index} task = {task} key = {task.id} tasks = { completedTasks} setTasks = {setCompletedTasks} />
                     ))}
