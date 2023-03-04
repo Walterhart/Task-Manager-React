@@ -14,7 +14,6 @@ interface Props{
     tasks: Task[];
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
     
-
 }
 
 const TaskItem = ({index, task, tasks, setTasks}: Props)  => {
@@ -25,9 +24,7 @@ const TaskItem = ({index, task, tasks, setTasks}: Props)  => {
     const completeTask = (id: number) => {
         setTasks(
           tasks.map((task) =>
-          task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
-          )
-        );
+          task.id === id ? { ...task, isCompleted: !task.isCompleted } : task));
     };
 
     // delte task base on id

@@ -6,9 +6,6 @@ import { Task } from './model/task-model';
 import TaskList from './component/TaskList';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
-
-
-
 const App: React.FC = () => {
   
   const [task, setTask] = useState('');
@@ -75,7 +72,6 @@ const App: React.FC = () => {
     setTasks(active);
   };
   
-
   return (
     <DragDropContext onDragEnd = {onDragEnd}>
     <div className="App">
