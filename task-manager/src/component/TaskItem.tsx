@@ -24,8 +24,8 @@ const TaskItem = ({index, task, tasks, setTasks}: Props)  => {
     //  mark task as completed
     const completeTask = (id: number) => {
         setTasks(
-          tasks.map((todo) =>
-            todo.id === id ? { ...task, isCompleted: !task.isCompleted } : todo
+          tasks.map((task) =>
+          task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
           )
         );
     };
