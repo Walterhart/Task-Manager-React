@@ -75,7 +75,6 @@ const App: React.FC = () => {
     setTasks(active);
   };
   
-  
 
   return (
     <DragDropContext onDragEnd = {onDragEnd}>
