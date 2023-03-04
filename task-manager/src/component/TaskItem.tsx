@@ -48,7 +48,6 @@ const TaskItem = ({index, task, tasks, setTasks}: Props)  => {
     useEffect(() => {
         InputTaskRef.current?.focus();
     
-      
     }, [edit])
     
   return (
