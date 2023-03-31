@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
 
 .input {
   display: flex;
@@ -6,7 +6,6 @@
   position: relative;
   align-items: center;
   margin: auto;
-  
 }
 
 .input-el {
@@ -19,112 +18,107 @@
   box-shadow: inset 0 0 5px black;
 }
 
-  .input-el:focus {
-    box-shadow: 0 0 10px 2000px rgba(0, 0, 0, 0.5);
-    outline: none;
-  }
-  
-  .btn-el {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    margin: 12px;
-    border-radius: 50px;
-    right: 0px;
-    border: none;
-    font-size: 15px;
-    background-color: #7a04eb;
-    color: white;
-    transition: 0.2s all;
+.input-el:focus {
+  box-shadow: 0 0 10px 2000px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
 
+.btn-el {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 12px;
+  border-radius: 50px;
+  right: 0px;
+  border: none;
+  font-size: 15px;
+  background-color: #7a04eb;
+  color: white;
+  transition: 0.2s all;
+}
+
+.btn-el:hover {
+  background-color: #ff00a0;
+  box-shadow: 5px #ff00a0;
+}
+
+.btn-el:active {
+  transform: scale(0.8);
+}
+
+.container {
+  width: 95%;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.task-header {
+  text-transform: uppercase;
+  padding-left: 20px;
+}
+
+.tasks {
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 47.5%;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.task-need-to-complete {
+  background-color: #0016ee;
+}
+
+.tasks-item {
+  display: flex;
+  flex: 1;
+  border-radius: 5px;
+  padding: 25px;
+  margin: 20px 20px 20px 20px;
+  background-image: url("https://img.freepik.com/free-photo/creative-background-with-wrinkled-paper-effect_23-2149640516.jpg?w=826&t=st=1677560659~exp=1677561259~hmac=f9bfeb44353e2668cd30a15765f15d609ac366482080f37c3599a020469b48fa");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.2s;
+}
+
+.tasks-item:hover {
+  box-shadow: 0 0 5px black;
+  transform: scale(1.05);
+}
+.task-completed {
+  background-color: #65dc98;
+  margin-top: 20px;
+}
+.icon {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #defe47;
+  cursor: pointer;
+}
+
+/*screen size handling*/
+@media (max-width: 1100px) {
+  .tasks {
+    width: 40%;
   }
-  
-  .btn-el:hover {
-    background-color: #ff00a0;
-    box-shadow: 5px  #ff00a0;
+  .input {
+    width: 95%;
   }
-  
-  .btn-el:active {
-    transform: scale(0.8);
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 95%;
   }
-  
   .container {
     width: 95%;
-    display: flex;
-    margin-top: 10px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: white
-    
   }
-  .task-header{
-    text-transform: uppercase;
-    padding-left: 20px;
-  }
-  
   .tasks {
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 47.5%;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 10px;
-  
+    width: 95%;
   }
-  .task-need-to-complete{
-    background-color:  #0016ee;
-  }
-  
-  .tasks-item{
-    display: flex;
-    flex:1;
-    border-radius: 5px;
-    padding: 25px;
-    margin: 20px 20px 20px 20px; 
-    background-image: url("https://img.freepik.com/free-photo/creative-background-with-wrinkled-paper-effect_23-2149640516.jpg?w=826&t=st=1677560659~exp=1677561259~hmac=f9bfeb44353e2668cd30a15765f15d609ac366482080f37c3599a020469b48fa");
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: 0.2s;
-    
-  }
-
-  .tasks-item:hover{
-    box-shadow: 0 0 5px black;
-    transform: scale(1.05);
-  }
-  .task-completed{
-    background-color: #65dc98 ;
-    margin-top: 20px;
-  }
-  .icon {
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #defe47;
-    cursor: pointer;
-  }
-
-  /*screen size handling*/
-  @media (max-width: 1100px) {
-    .tasks {
-      width: 40%;
-    }
-    .input {
-      width: 95%;
-    }
-  }
-  
-  @media (max-width: 700px) {
-    .input {
-      width: 95%;
-    }
-    .container {
-      width: 95%;   
-    }
-    .tasks {
-      width: 95%;
-    }
-  }
-  
+}

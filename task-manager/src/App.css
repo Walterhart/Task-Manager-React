@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
 
 .App {
   width: 100vw;
@@ -7,7 +6,7 @@
   display: flex;
   flex-direction: column;
   background-color: #7a04eb;
-  font-family: 'Mynerve', cursive;
+  font-family: "Mynerve", cursive;
 }
 
 .heading {
@@ -25,4 +24,3 @@
     font-size: 35px;
   }
 }
-

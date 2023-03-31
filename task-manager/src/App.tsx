@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './App.css';
-import InputForm from './component/InputForm';
-import { Task } from './model/task-model';
-import TaskList from './component/TaskList';
-import { DragDropContext, DropResult } from 'react-beautiful-dnd';
+import "./App.css";
+import InputForm from "./component/InputForm";
+import { Task } from "./model/task-model";
+import TaskList from "./component/TaskList";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 const App: React.FC = () => {
-  
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
 
   // array of Task
   // follow Task interfact structure
@@ -17,13 +16,13 @@ const App: React.FC = () => {
   // variable for state of task-items
   const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
 
-  const addTask = (e: React.FormEvent) =>{
+  const addTask = (e: React.FormEvent) => {
     e.preventDefault();
 
     // if task exist set task into tasks
-    if(task){
-      setTasks([...tasks,  { id: Date.now(), task: task ,isCompleted: false}]);
-      setTask('');
+    if (task) {
+      setTasks([...tasks, { id: Date.now(), task: task, isCompleted: false }]);
+      setTask("");
     }
   };
 
@@ -50,8 +49,8 @@ const App: React.FC = () => {
     let active = tasks;
     let complete = completedTasks;
 
-    // Source 
-    // check where source came from 
+    // Source
+    // check where source came from
     if (source.droppableId === "task-need-to-do") {
       add = active[source.index];
       active.splice(source.index, 1);
@@ -60,8 +59,8 @@ const App: React.FC = () => {
       complete.splice(source.index, 1);
     }
 
-    // Destination 
-    // add destination 
+    // Destination
+    // add destination
     if (destination.droppableId === "task-need-to-do") {
       active.splice(destination.index, 0, add);
     } else {
@@ -71,16 +70,21 @@ const App: React.FC = () => {
     setCompletedTasks(complete);
     setTasks(active);
   };
-  
+
   return (
-    <DragDropContext onDragEnd = {onDragEnd}>
-    <div className="App">
-      <h1 className='heading'> Task Manager</h1>
-     <InputForm task= {task} setTask={setTask} addTask = {addTask}/>
-     <TaskList tasks= {tasks} setTasks={setTasks} completedTasks = {completedTasks} setCompletedTasks = {setCompletedTasks} />
-    </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="App">
+        <h1 className="heading"> Task Manager</h1>
+        <InputForm task={task} setTask={setTask} addTask={addTask} />
+        <TaskList
+          tasks={tasks}
+          setTasks={setTasks}
+          completedTasks={completedTasks}
+          setCompletedTasks={setCompletedTasks}
+        />
+      </div>
     </DragDropContext>
   );
-}
+};
 
 export default App;
